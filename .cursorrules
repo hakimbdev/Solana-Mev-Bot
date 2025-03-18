@@ -1,0 +1,90 @@
+﻿# Solana MEV Bot
+
+A legitimate MEV (Maximal Extractable Value) bot for the Solana blockchain that performs arbitrage between decentralized exchanges like Jupiter, Raydium, and Orca.
+
+## What is MEV?
+
+MEV (Maximal Extractable Value) refers to the profit that can be extracted from blockchain networks by reordering, including, or excluding transactions. On Solana, MEV opportunities primarily come from:
+
+- Arbitrage between DEXs
+- Sandwich attacks (not implemented in this bot for ethical reasons)
+- Liquidation opportunities
+- Long-tail token listings and swaps
+
+## Features
+
+- **Multi-DEX Arbitrage**: Automatically identifies and executes profitable trading opportunities across Jupiter, Raydium, and Orca
+- **Token Scanning**: Monitors for new token listings and price movements
+- **Secure Key Management**: Local encrypted storage of wallet keys
+- **Risk Management**: Configurable stop-loss, take-profit, and position sizing
+- **Gas Optimization**: Smart transaction fee management to maximize profits
+- **Simulation Mode**: Test strategies without risking real funds
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) v16 or higher
+- [Git](https://git-scm.com/) for cloning the repository
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/solana-mev-bot.git
+   cd solana-mev-bot
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the root directory with your configuration:
+   ```
+   RPC_ENDPOINT=https://api.mainnet-beta.solana.com
+   PRIVATE_KEY=your_private_key_or_mnemonic
+   MIN_PROFIT_THRESHOLD=0.005
+   MAX_SLIPPAGE=0.5
+   ```
+
+## Usage
+
+1. Start the bot:
+   ```bash
+   npm start
+   ```
+
+2. Follow the interactive CLI menu to:
+   - Create or import a wallet
+   - View balance and wallet info
+   - Configure trading settings
+   - Start arbitrage monitoring
+   - View profits and trading history
+
+## How It Works
+
+1. **Token Discovery**: The bot monitors DEXs for new token listings and price movements
+2. **Price Analysis**: When a potential opportunity is found, the bot checks prices across all supported DEXs
+3. **Profit Calculation**: Calculates potential profit after fees and slippage
+4. **Transaction Execution**: If profitable, executes the trades in a single atomic transaction when possible
+5. **Risk Management**: Adheres to user-defined risk parameters for maximum safety
+
+## Supported DEXs
+
+- Jupiter
+- Raydium
+- Orca
+
+## Security
+
+- No external API dependencies for critical operations
+- All private keys are stored locally and encrypted
+- Open source for transparency and security review
+
+## Disclaimer
+
+Trading cryptocurrencies involves significant risk. This bot is provided for educational purposes only. Always start with small amounts and thoroughly test before deploying with significant capital.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
